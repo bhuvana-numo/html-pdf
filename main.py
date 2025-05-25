@@ -1,68 +1,83 @@
 from fastapi import FastAPI, HTTPException
 from fastapi.responses import FileResponse
+from pydantic import BaseModel
+from typing import Dict, Any
+import re
 import tempfile
 import weasyprint
-import re
-import os
 
 app = FastAPI()
 
-HTML_FILE_PATH = "invoice-template.html"  
+class FillTemplateRequest(BaseModel):
+    data: Dict[str, Any]
+    optionalBlocks: Dict[str, Dict[str, str]] = {}
 
 def inject_margin_reset(html: str) -> str:
-    normalize_css = """
+    style_tag = """
     <style>
-        @page { margin: 0; }
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-            font-size: 12px;
-        }
-        html {
-            -webkit-print-color-adjust: exact;
-            print-color-adjust: exact;
-        }
-        td.left-align {
-            text-align: left;
-        }
-        td.right-align {
-            text-align: right;
-        }
+        @page { margin: 20px; }
+        body { margin: 0px; font-family: Arial, sans-serif; }
+        td.left-align { text-align: left; }
+        td.right-align { text-align: right; }
+        td.center-align { text-align: center; }
     </style>
     """
+    return re.sub(r"(<head.*?>)", r"\1" + style_tag, html, flags=re.IGNORECASE)
 
+def convert_td_align_to_style(html: str) -> str:
+    # Replace align attribute in <td>
+    html = re.sub(r'<td([^>]*?)\s+align="left"', r'<td\1 style="text-align:left;"', html)
+    html = re.sub(r'<td([^>]*?)\s+align="right"', r'<td\1 style="text-align:right;"', html)
+    html = re.sub(r'<td([^>]*?)\s+align="center"', r'<td\1 style="text-align:center;"', html)
 
-    html = re.sub(r'\s*align="right"', ' class="right-align"', html, flags=re.IGNORECASE)
-    html = re.sub(r'\s*align="left"', ' class="left-align"', html, flags=re.IGNORECASE)
+    # Replace align in <p>
+    html = re.sub(r'<p\s+align="left"', r'<p style="text-align:left;"', html)
+    html = re.sub(r'<p\s+align="right"', r'<p style="text-align:right;"', html)
+    html = re.sub(r'<p\s+align="center"', r'<p style="text-align:center;"', html)
 
-    if "<head>" in html:
-        return re.sub(r"<head>", f"<head>{normalize_css}", html, count=1, flags=re.IGNORECASE)
-    elif "<html>" in html:
-        return re.sub(r"<html>", f"<html><head>{normalize_css}</head>", html, count=1, flags=re.IGNORECASE)
-    else:
-        return f"<head>{normalize_css}</head>{html}"
+    return html
 
-@app.get("/generate-pdf")
-async def generate_pdf():
-    if not os.path.exists(HTML_FILE_PATH):
-        raise HTTPException(status_code=404, detail="HTML template file not found.")
+def fill_placeholders(html: str, data: Dict[str, Any], optional_blocks: Dict[str, Dict[str, str]]) -> str:
+    for key, value in data.items():
+        html = html.replace(f"{{{{{key}}}}}", str(value))
 
+    def replace_optional(match):
+        block_key = match.group(1)
+        block_data = optional_blocks.get(block_key)
+        if block_data:
+            label = block_data.get("label", block_key)
+            value = block_data.get("value", "")
+            return f"<tr><td class='left-align'>&nbsp;{label}</td><td class='right-align'>{value}&nbsp;</td></tr>"
+        return ""
+
+    html = re.sub(r"{(\w+)}", replace_optional, html)
+    return html
+
+@app.post("/fill-template", response_class=FileResponse)
+async def fill_template(request: FillTemplateRequest):
     try:
-   
-        with open(HTML_FILE_PATH, "r", encoding="utf-8") as f:
-            html_content = f.read()
+        with open("invoice-template.html", "r", encoding="utf-8") as file:
+            template_html = file.read()
 
-        html_with_margins = inject_margin_reset(html_content)
+        # Process HTML
+        html = inject_margin_reset(template_html)
+        html = convert_td_align_to_style(html)
+        filled_html = fill_placeholders(html, request.data, request.optionalBlocks)
 
-        pdf = weasyprint.HTML(string=html_with_margins).write_pdf()
+        # Generate PDF
+        pdf_bytes = weasyprint.HTML(string=filled_html).write_pdf()
 
-
+        # Save as temp file
         with tempfile.NamedTemporaryFile(delete=False, suffix=".pdf") as temp_pdf:
-            temp_pdf.write(pdf)
+            temp_pdf.write(pdf_bytes)
             temp_pdf_path = temp_pdf.name
 
-        return FileResponse(temp_pdf_path, media_type="application/pdf", filename="invoice.pdf")
-
+        return FileResponse(
+            temp_pdf_path,
+            media_type="application/pdf",
+            filename="invoice.pdf"
+        )
     except Exception as e:
+        print(e)
         raise HTTPException(status_code=500, detail=str(e))
+
