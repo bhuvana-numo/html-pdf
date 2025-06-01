@@ -1,0 +1,152 @@
+<!DOCTYPE html><html><head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    table {
+      border: 1px solid black;
+      border-collapse: collapse;
+    }
+
+
+    .center {
+      margin-left: auto;
+      margin-right: auto;
+    }
+    tr td { width:50%; }
+    
+    body {
+      font-family: 'Roboto', sans-serif;
+      font-size: 20px;
+    }
+  </style>
+</head>
+
+
+<body>
+  <table class="center" style="width:90%">
+    <tbody><tr>
+      <td colspan="2" style="text-align: center;">
+        <img src="" style="width:30%; max-width:250px;">
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align: left;">&nbsp;Transaction Slip No</td>
+      <td style="text-align: right;">{{invoice}}&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left;">&nbsp;</td>
+      <td style="text-align: left;">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left;">&nbsp;Address</td>
+      <td style="text-align: right;"> {{subscriptionAddress}} &nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left;">&nbsp;</td>
+      <td style="text-align: left;">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left;">&nbsp;GST Number</td>
+      <td style="text-align: right;"> {{subscriptionGst}} &nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left;">&nbsp;</td>
+      <td style="text-align: left;">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left;"><b>&nbsp;Bill To</b></td>
+      <td style="text-align: right;"></td>
+    </tr>
+    <tr>
+      <td style="text-align: left;">&nbsp;Name</td>
+      <td style="text-align: right;"> {{userName}} &nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left;">&nbsp;Additional Information</td>
+      <td style="text-align: right;"> {{userType}} {{vehicleDetails}} &nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left;">&nbsp;</td>
+      <td style="text-align: left;">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left;">&nbsp;Address</td>
+      <td style="text-align: right;"> {{accountAddress}} &nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left;">&nbsp;GST Number</td>
+      <td style="text-align: right;"> {{accountGSTN}} &nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left;">&nbsp;PAN</td>
+      <td style="text-align: right;"> {{accountPAN}} &nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left;">&nbsp;Invoice Date</td>
+      <td style="text-align: right;">{{date}}&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left;">&nbsp;</td>
+      <td style="text-align: left;">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left;"><b>&nbsp;Subscription Details</b></td>
+      <td style="text-align: right;"></td>
+    </tr>
+    <tr>
+      <td style="text-align: left;">&nbsp;Subscription name</td>
+      <td style="text-align: right;"> {{name}} &nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left;">&nbsp;Energy Purchased</td>
+      <td style="text-align: right;"> {{energy}} &nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left;">&nbsp;SAC Code and Description</td>
+      <td style="text-align: right;"> 998714 Maintenance and repair of transport machinery and equipment &nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left;">&nbsp;Plan Validity Period(days)</td>
+      <td style="text-align: right;">{{planValidity}}&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left;">&nbsp;Grace Period(days)</td>
+      <td style="text-align: right;">{{gracePeriod}}&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left;">&nbsp;<b>Subscription Amount</b></td>
+      <td style="text-align: right;"><b>{{subsAmount}}&nbsp;</b></td>
+    </tr>
+    <tr>
+      <td style="text-align: left;">&nbsp;<b>Service Fee </b></td>
+      <td style="text-align: right;"><b>{{taxableChargingServiceFee}}</b>&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left;">&nbsp;<b>Total Amount</b></td>
+      <td style="text-align: right;"><b>{{amount}}</b> &nbsp;</td>
+    </tr>
+
+    <tr>
+        <td style="text-align: left;">&nbsp;<b>Total Amount In Words</b></td>
+        <td style="text-align: right;"><b>{{totalInWords}}&nbsp;</b></td>
+      </tr>
+    <tr>
+      </tr><tr>
+        <td style="text-align: left;">&nbsp;</td>
+        <td style="text-align: left;">&nbsp;</td>
+      </tr>
+      <tr><td style="text-align: left;">&nbsp;Amount Debited</td>
+      <td style="text-align: right;">{{amount}}&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left;">&nbsp;Wallet Id</td>
+      <td style="text-align: right;">{{walletId}}&nbsp;</td>
+    </tr>
+
+    <tr>
+      <td colspan="2" style="text-align: center;">
+        <span>Thank you for using {{companyName}} EV service</span>
+      </td>
+    </tr>
+  </tbody></table>
+
+</body></html>

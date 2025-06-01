@@ -1,0 +1,230 @@
+<html><head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+        * {
+            box-sizing: border-box;
+        }
+        .column {
+            width: 50%;
+            padding: auto;
+
+        }
+        .margin {
+            margin-top: 0%;
+            margin-bottom: 0%;
+            margin-left: 5px;
+            margin-right: 40px;
+        }
+        .column_2_division {
+            color: rgb(105, 105, 105);
+            float: left;
+            width: 50%;
+            padding: auto;
+            font-weight: normal;
+            font-size: 15;
+            text-align: right;
+        }
+        .column_1_division {
+            color: rgb(35, 31, 32);
+            float: right;
+            width: 50%;
+            padding: auto;
+            font-weight: bold;
+            font-size: 13;
+            text-align: left;
+        }
+        .center {
+            margin-left: auto;
+            margin-right: auto;
+        }
+        /* Clear floats after the columns */
+        .align_center {
+            text-align: center;
+            vertical-align: middle;
+        }
+        .align_center_padding{
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+            width: 70%;
+        }
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+        .align_right {
+            text-align: right;
+            padding: auto;
+        }
+        .align_left {
+            text-align: left;
+            padding: auto;
+        }
+        .page_formate_outer {
+            width: auto;
+            height: auto;
+            min-width: 820px; 
+            padding: 10px;
+            background-color: #003469;
+        }
+
+        .page_formate {
+            width: auto;
+            height: auto;
+            min-width: 800px; 
+            padding: 35px;
+            background-color: rgb(255, 255, 255);
+        }
+
+        .no_padding_margin {
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+    </style>
+</head>
+<body style="font-family: 'Roboto', sans-serif;">
+    <div class="row page_formate_outer">
+        <div class="row page_formate">
+            <div class="row align_center">
+                <h2 style="margin-left: 1%;font-size:26px;">Subscription Transaction Slip</h2>
+            </div>
+            <div class="align_center">
+                <img src="{{logoUrl}}" style="width:30%; max-width:250px;">
+            </div>
+            <div class="row align_center">
+                <p style="font-size:16px; color: rgb(35, 31, 32); ">{{createdAtTime}}</p>
+            </div>
+            <div class="row align_center_padding">
+                <h2 style="font-size:20px;">User details</h2>
+                <hr>
+                <br>
+                <div class="row">
+                    <div class="column_2_division ">
+                        <p class="margin">Name</p> 
+                    </div>
+                    <div class="column_1_division ">
+                        <p class="margin">{{userName}}</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="column_2_division ">
+                        <p class="margin">Additional information</p>
+                    </div>
+                    <div class="column_1_division ">
+                        <p class="margin">{{userType}} {{vehicleDetails}}</p>
+                    </div>
+                </div>
+                {subsGroup}
+                <br>
+            </div>
+            <hr>
+            <div class="row align_center">
+                <div class="row">
+                    <div class="row align_center">
+                        <h2 style="font-size:20px; color:rgb(35, 31, 32);">Charger Details</h2>
+                    <div class="row">
+                        <div class="column_2_division">
+                            <p class="margin">Charging location</p>
+                        </div>
+                        <div class="column_1_division">
+                            <p class="margin">{{chargeStationName}}</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="column_2_division">
+                                <p class="margin">Chargepoint id</p>
+                        </div>
+                        <div class="column_1_division">
+                            <p class="margin">{{chargePointId}}</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="column_2_division">
+                            <p class="margin">Connector type</p>
+                        </div>
+                        <div class="column_1_division">
+                            <p class="margin">{{connectorType}}</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="column_2_division">
+                                <p class="margin">Location address</p>
+                        </div>
+                        <div class="column_1_division">
+                            <p class="margin">{{chargeStationAddress}}</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="column_2_division">
+                                <p class="margin">PAN</p>
+                        </div>
+                        <div class="column_1_division">
+                            <p class="margin">{{stationPAN}}</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="column_2_division">
+                                <p class="margin">GST</p>
+                        </div>
+                        <div class="column_1_division">
+                            <p class="margin">{{stationGSTN}}</p>
+                        </div>
+                    </div>
+                </div>
+                </div>
+                <div class="row">
+                    <div class="row align_center">
+                        <h2 style="font-size:20px;">Session Details</h2>
+                        <div class="row">
+                            <div class="column_2_division">
+                                <p class="margin">Transaction ID</p>
+                            </div>
+                            <div class="column_1_division">
+                                <p class="margin">{{transactionId}}</p>
+                            </div>
+                        </div>
+                    <div class="row">
+                        <div class="column_2_division">
+                            <p class="margin">Transaction date</p>
+                        </div>
+                        <div class="column_1_division">
+                            <p class="margin">{{createdAtTime}}</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="column_2_division">
+                            <p class="margin">Total duration(mins)</p>
+                        </div>
+                        <div class="column_1_division">
+                            <p class="margin">{{deliveredMin}}</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="column_2_division">
+                            <p class="margin">Energy consumed(Kwh)</p>
+                        </div>
+                        <div class="column_1_division">
+                            <p class="margin">{{deliveredKwh}}</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="column_2_division">
+                            <p class="margin">Balance energy(Kwh)</p>
+                        </div>
+                        <div class="column_1_division">
+                            <p class="margin">{{balanceKwh}}</p>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- {carbonmessge} -->
+
+
+
+
+
+</body></html>

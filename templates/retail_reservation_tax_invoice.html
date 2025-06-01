@@ -1,0 +1,181 @@
+<!DOCTYPE html><html><head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    table {
+      border: 1px solid black;
+      border-collapse: collapse;
+    }
+
+
+    .center {
+      margin-left: auto;
+      margin-right: auto;
+    }
+    tr td { width:50%; }
+    
+    body {
+      font-family: 'Roboto', sans-serif;
+      font-size: 20px;
+    }
+  </style>
+</head>
+
+
+<body>
+  
+    {subTypeTaxDetails}
+    <table class="center" style="width:90%">
+    <tbody><tr>
+      </tr><tr>
+        <td colspan="2" style="text-align: center;">&nbsp;Tax Invoice</td>
+      </tr>
+    
+    <tr>
+      <td style="text-align: left;">&nbsp;Tax Invoice No</td>
+      <td style="text-align: right;">{{invoice}}&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left;">&nbsp;</td>
+      <td style="text-align: left;">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left;">&nbsp;Entity Name</td>
+      <td style="text-align: right;">{{businessEntityName}}</td>
+    </tr>
+    <tr>
+      <td style="text-align: left;">&nbsp;</td>
+      <td style="text-align: left;">&nbsp;</td>
+    </tr>
+    <tr>
+        <td style="text-align: left;">&nbsp;Address</td>
+        <td style="text-align: right;"> {{stationAddress}} &nbsp;</td>
+      </tr>
+      <tr>
+        <td style="text-align: left;">&nbsp;</td>
+        <td style="text-align: left;">&nbsp;</td>
+      </tr>
+      <tr>
+        <td style="text-align: left;">&nbsp;GST Number</td>
+        <td style="text-align: right;"> {{stationGSTN}} &nbsp;</td>
+      </tr>
+      <tr>
+        <td style="text-align: left;">&nbsp;</td>
+        <td style="text-align: left;">&nbsp;</td>
+      </tr>
+      <tr>
+        <td style="text-align: left;">&nbsp;PAN</td>
+        <td style="text-align: right;"> {{stationPAN}} &nbsp;</td>
+      </tr>
+      <tr>
+        <td style="text-align: left;">&nbsp;</td>
+        <td style="text-align: left;">&nbsp;</td>
+      </tr>
+      <tr>
+        <td style="text-align: left;">&nbsp;CIN</td>
+        <td style="text-align: right;"></td>
+      </tr>
+      <tr>
+        <td style="text-align: left;">&nbsp;</td>
+        <td style="text-align: left;">&nbsp;</td>
+      </tr>
+    <tr>
+      <td style="text-align: left;"><b>&nbsp;Bill To</b></td>
+      <td style="text-align: right;"></td>
+    </tr>
+    <tr>
+      <td style="text-align: left;">&nbsp;Name</td>
+      <td style="text-align: right;"> {{username}} &nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left;">&nbsp;Additional Information</td>
+      <td style="text-align: right;"> {{userType}} &nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left;">&nbsp;</td>
+      <td style="text-align: left;">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left;">&nbsp;Address</td>
+      <td style="text-align: right;"> {{accountAddress}} &nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left;">&nbsp;GST Number</td>
+      <td style="text-align: right;"> {{accountGSTN}} &nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left;">&nbsp;PAN</td>
+      <td style="text-align: right;"> {{accountPAN}} &nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left;">&nbsp;Invoice Date</td>
+      <td style="text-align: right;">{{createdOn}}&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left;">&nbsp;</td>
+      <td style="text-align: left;">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left;"><b>&nbsp;Reservation Details</b></td>
+      <td style="text-align: right;"></td>
+    </tr>
+    <tr>
+      <td style="text-align: left;">&nbsp;Charging Location</td>
+      <td style="text-align: right;"> {{chargingstation}} &nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left;">&nbsp;Charge Point</td>
+      <td style="text-align: right;"> {{cpid}} &nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left;">&nbsp;Connector Type</td>
+      <td style="text-align: right;"> {{connectortype}} &nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left;">&nbsp;SAC Code and Description</td>
+      <td style="text-align: right;"> 998714 Maintenance and repair of transport machinery and equipment &nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left;">&nbsp;Start Time</td>
+      <td style="text-align: right;">{{reservationstart}}&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left;">&nbsp;Duration</td>
+      <td style="text-align: right;">{{reservationtime}} minutes&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left;">&nbsp;Reservation Tariff</td>
+      <td style="text-align: right;">{{reservationRate}}/min&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left;">&nbsp;<b>Reservation Fee</b> </td>
+      <td style="text-align: right;"><b>{{reservationCost}}</b>&nbsp;</td>
+    </tr><tr>
+      <td style="text-align: left;">&nbsp;<b>Total Tax Amount</b></td>
+      <td style="text-align: right;"><b>{{tax}}</b>&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left;">&nbsp;<b>Total Amount</b></td>
+      <td style="text-align: right;"><b>{{totalAmount}}</b> &nbsp;</td>
+    </tr>
+
+    <tr>
+        <td style="text-align: left;">&nbsp;<b>Total Amount In Words</b></td>
+        <td style="text-align: right;"><b>{{totalInWords}}</b>&nbsp;</td>
+      </tr>
+    <tr>
+      <td style="text-align: left;">&nbsp;Amount Debited</td>
+      <td style="text-align: right;">{{totalAmount}}&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left;">&nbsp;Payment Mode</td>
+      <td style="text-align: right;">{{chargingPaymentMode}}&nbsp;</td>
+    </tr>
+    <tr>
+      <td colspan="2" style="text-align: center;">
+        <span>Thank you for using {{companyName}} EV service</span>
+      </td>
+    </tr>
+  </tbody></table>
+
+
+</body></html>

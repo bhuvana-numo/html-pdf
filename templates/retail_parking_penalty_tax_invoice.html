@@ -1,0 +1,148 @@
+<!DOCTYPE html><html><head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    table {
+      border: 1px solid black;
+      border-collapse: collapse;
+    }
+
+    .center {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    tr td {
+      width: 50%;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      font-size: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  
+    {taxInfoForParkingPenalty}
+    <table class="center" style="width:90%">
+    <tbody><tr>
+      <td colspan="2" style="text-align: center;">&nbsp;Tax Invoice</td>
+    </tr>
+    <tr>
+      <td style="text-align: left;">&nbsp;Entity Name</td>
+      <td style="text-align: right;">{{businessEntityName}}</td>
+    </tr>
+    <tr>
+      <td style="text-align: left;">&nbsp;Address</td>
+      <td style="text-align: right;"> {{stationAddress}} &nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left;">&nbsp;PAN</td>
+      <td style="text-align: right;"> {{stationPAN}} &nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left;">&nbsp;CIN</td>
+      <td style="text-align: right;"></td>
+    </tr>
+<tr>
+      <td style="text-align: left;"><b>&nbsp;Bill To</b></td>
+      <td style="text-align: right;"></td>
+    </tr>
+    <tr>
+      <td style="text-align: left;">&nbsp;Customer Name</td>
+      <td style="text-align: right;"> {{username}} &nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left;">&nbsp;Customer Address</td>
+      <td style="text-align: right;"> {{accountAddress}} &nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left;">&nbsp;Tax Invoice No.</td>
+      <td style="text-align: right;"> {{invoiceNo}} &nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left;">&nbsp;Invoice Date</td>
+      <td style="text-align: right;">{{invoiceDate}}&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left;"><b>&nbsp;Transaction Details</b></td>
+      <td style="text-align: right;"></td>
+    </tr>
+    <tr>
+      <td style="text-align: left;">&nbsp;Station Name</td>
+      <td style="text-align: right;"> {{chargeStationName}} &nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left;">&nbsp;Charge Point</td>
+      <td style="text-align: right;"> {{cpId}} &nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left;">&nbsp;Connector Type</td>
+      <td style="text-align: right;"> {{connectorType}} &nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left;"><b>&nbsp;EV Service Parking Charges Details</b></td>
+      <td style="text-align: right;"></td>
+    </tr>
+    <tr>
+      <td style="text-align: left;">&nbsp;Parking Penalty Start Time</td>
+      <td style="text-align: right;"> {{panaltyStartTime}} &nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left;">&nbsp;Parking Penalty End Time</td>
+      <td style="text-align: right;"> {{parkingPenaltyEndTime}} &nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left;">&nbsp;Elapsed Time From Start to Now (Min)</td>
+      <td style="text-align: right;"> {{elapsedTimeFromStopToNow}} &nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left;">&nbsp;Grace Period (Min)</td>
+      <td style="text-align: right;"> {{gracePeriod}} &nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left;">&nbsp;Total Penalty Duration (Min)</td>
+      <td style="text-align: right;"> {{penaltyDurationInMin}} &nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left;">&nbsp;Tariff Rate Per Minute</td>
+      <td style="text-align: right;"> {{penaltyTariffRate}} &nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left;">&nbsp;SAC Code and Description</td>
+      <td style="text-align: right;"> 998714 Maintenance and repair of transport machinery and equipment &nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left;">&nbsp;EV Service Parking Charges Fee</td>
+      <td style="text-align: right;">{{parkingPenaltyFee}}&nbsp;</td>
+    </tr><tr>
+      <td style="text-align: left;">&nbsp;<b>Total Tax Amount</b></td>
+      <td style="text-align: right;"><b>{{parkingPenaltyTotalTax}}</b>&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left;">&nbsp;<b>Total Amount ({{currencyType}})</b></td>
+      <td style="text-align: right;"><b>{{totalParkingPenaltyFee}}</b>&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left;">&nbsp;<b>Total Amount In Words</b></td>
+      <td style="text-align: right;"><b>{{totalInWords}}</b>&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left;">&nbsp;Amount Debited</td>
+      <td style="text-align: right;">{{totalParkingPenaltyFee}}&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left;">&nbsp;Mode of Payment</td>
+      <td style="text-align: right;">{{chargingPaymentMode}}&nbsp;</td>
+    </tr>
+    <tr>
+      <td colspan="2" style="text-align: center;">
+        <span>Thank you for using {{companyName}} EV service</span>
+      </td>
+    </tr>
+  </tbody></table>
+
+
+
+</body></html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html><html lang="en"><head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9f9;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 800px;
+      margin: 20px auto;
+      background: #fff;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+    }
+
+    .header {
+      text-align: center;
+      border-bottom: 2px solid #f0f0f0;
+      padding-bottom: 15px;
+      margin-bottom: 20px;
+    }
+
+    .header img {
+      max-width: 150px;
+      margin-bottom: 10px;
+    }
+
+    .header h1 {
+      font-size: 24px;
+      color: #333;
+      margin: 0;
+    }
+
+    .section-title {
+      font-size: 18px;
+      color: #555;
+      margin-bottom: 10px;
+      border-bottom: 1px solid #eee;
+      padding-bottom: 5px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 20px;
+      table-layout: fixed; /* Ensure uniform column widths */
+    }
+
+    table th, table td {
+      text-align: left;
+      padding: 8px;
+      font-size: 14px;
+    }
+
+    table th {
+      background-color: #f4f4f9;
+      font-weight: bold;
+      width: 40%; /* Set fixed width for the first column */
+    }
+
+    table td {
+      word-wrap: break-word; /* Handle long text gracefully */
+      width: 60%; /* Set fixed width for the second column */
+    }
+
+    table tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+
+    .footer {
+      text-align: center;
+      color: #888;
+      font-size: 12px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="header">
+      <img src="{{logoUrl}}" style="width:30%; max-width:250px;">
+      <h1>Reservation Cancellation Refund Slip</h1>
+    </div>
+
+    <div>
+      <h2 class="section-title">Cancellation Details</h2>
+      <table>
+        <tbody><tr>
+          <th>Customer Name</th>
+          <td>{{userName}}</td>
+        </tr>
+        <tr>
+          <th>Reservation ID</th>
+          <td>{{reservationId}}</td>
+        </tr>
+        <tr>
+          <th>Cancellation Date</th>
+          <td>{{createdOn}}</td>
+        </tr>
+        <tr>
+          <th>Refund Percentage</th>
+          <td>{{refundPercentage}}%</td>
+        </tr>
+        <tr>
+          <th>Refund Amount</th>
+          <td>{{refundAmount}}</td>
+        </tr>
+      </tbody></table>
+
+      <h2 class="section-title">Payment Details</h2>
+      <table>
+        <tbody><tr>
+          <th>Original Amount</th>
+          <td>{{originalAmount}}</td>
+        </tr>
+        <tr>
+          <th>Total Refundable Amount</th>
+          <td>{{totalRefundableAmount}}</td>
+        </tr>
+      </tbody></table>
+    </div>
+
+    <div class="footer">
+      <p>Thank you for choosing {{companyName}} EV service</p>
+    </div>
+  </div>
+
+
+</body></html>

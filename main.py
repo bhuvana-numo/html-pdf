@@ -24,18 +24,6 @@ def inject_margin_reset(html: str) -> str:
     """
     return re.sub(r"(<head.*?>)", r"\1" + style_tag, html, flags=re.IGNORECASE)
 
-def convert_td_align_to_style(html: str) -> str:
-    # Replace align attribute in <td>
-    html = re.sub(r'<td([^>]*?)\s+align="left"', r'<td\1 style="text-align:left;"', html)
-    html = re.sub(r'<td([^>]*?)\s+align="right"', r'<td\1 style="text-align:right;"', html)
-    html = re.sub(r'<td([^>]*?)\s+align="center"', r'<td\1 style="text-align:center;"', html)
-
-    # Replace align in <p>
-    html = re.sub(r'<p\s+align="left"', r'<p style="text-align:left;"', html)
-    html = re.sub(r'<p\s+align="right"', r'<p style="text-align:right;"', html)
-    html = re.sub(r'<p\s+align="center"', r'<p style="text-align:center;"', html)
-
-    return html
 
 def fill_placeholders(html: str, data: Dict[str, Any], optional_blocks: Dict[str, Dict[str, str]]) -> str:
     for key, value in data.items():
@@ -56,12 +44,11 @@ def fill_placeholders(html: str, data: Dict[str, Any], optional_blocks: Dict[str
 @app.post("/fill-template", response_class=FileResponse)
 async def fill_template(request: FillTemplateRequest):
     try:
-        with open("invoice-template.html", "r", encoding="utf-8") as file:
+        with open("templates\group_charging_tax_invoice.html", "r", encoding="utf-8") as file:
             template_html = file.read()
 
         # Process HTML
         html = inject_margin_reset(template_html)
-        html = convert_td_align_to_style(html)
         filled_html = fill_placeholders(html, request.data, request.optionalBlocks)
 
         # Generate PDF
@@ -80,4 +67,3 @@ async def fill_template(request: FillTemplateRequest):
     except Exception as e:
         print(e)
         raise HTTPException(status_code=500, detail=str(e))
-

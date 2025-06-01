@@ -1,0 +1,157 @@
+<!DOCTYPE html><html lang="en"><head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f9;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 800px;
+      margin: 20px auto;
+      background: #fff;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+    }
+
+    .header {
+      text-align: center;
+      border-bottom: 2px solid #f0f0f0;
+      padding-bottom: 15px;
+      margin-bottom: 20px;
+    }
+
+    .header img {
+      max-width: 150px;
+      margin-bottom: 10px;
+    }
+
+    .header h1 {
+      font-size: 24px;
+      color: #333;
+      margin: 0;
+    }
+
+    .section-title {
+      font-size: 18px;
+      color: #555;
+      margin-bottom: 10px;
+      border-bottom: 1px solid #eee;
+      padding-bottom: 5px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 20px;
+      table-layout: fixed; /* Uniform column widths */
+    }
+
+    table th, table td {
+      text-align: left;
+      padding: 8px;
+      font-size: 14px;
+      word-wrap: break-word; /* Handle long text gracefully */
+    }
+
+    table th {
+      background-color: #f4f4f9;
+      font-weight: bold;
+      width: 40%; /* Fixed width for the first column */
+    }
+
+    table td {
+      width: 60%; /* Fixed width for the second column */
+    }
+
+    table tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+
+    .footer {
+      text-align: center;
+      color: #888;
+      font-size: 12px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="header">
+      <img src="{{logoUrl}}" style="width:30%; max-width:250px;">
+      <h1>Reservation Booking Slip</h1>
+    </div>
+
+    <div>
+      <h2 class="section-title">Bill From</h2>
+      <p>{{companyName}}</p>
+      <p>{{stationAddress}}</p>
+
+      <h2 class="section-title">Reservation Details</h2>
+      
+        {groupName}
+        <table>
+        <tbody><tr>
+          <th>Customer Name</th>
+          <td>{{username}}</td>
+        </tr><tr>
+          <th>Reservation Date</th>
+          <td>{{createdOn}}</td>
+        </tr>
+        <tr>
+          <th>Charging Location</th>
+          <td>{{chargingstation}}</td>
+        </tr>
+        <tr>
+          <th>Charge Point</th>
+          <td>{{cpid}}</td>
+        </tr>
+        <tr>
+          <th>Connector Type</th>
+          <td>{{connectortype}}</td>
+        </tr>
+        <tr>
+          <th>Reservation Start Time</th>
+          <td>{{reservationstart}}</td>
+        </tr>
+        <tr>
+          <th>Reservation End Time</th>
+          <td>{{reservationexpiry}}</td>
+        </tr>
+        <tr>
+          <th>Total Duration</th>
+          <td>{{reservationtime}} Minutes</td>
+        </tr>
+      </tbody></table>
+
+      <h2 class="section-title">Payment Details</h2>
+      <table>
+        <tbody><tr>
+          <th>Reservation Rate</th>
+          <td>{{reservationRate}}/min</td>
+        </tr>
+        <tr>
+          <th>Total Amount</th>
+          <td>{{totalAmount}}</td>
+        </tr>
+        <tr>
+          <th>Deduction from Wallet</th>
+          <td>{{totalAmount}}</td>
+        </tr>
+      </tbody></table>
+    </div>
+
+    <div class="footer">
+      <p>Please note: Your invoice will be generated automatically once your reservation begins.</p>
+      <p>Thank you for choosing {{companyName}} EV service</p>
+    </div>
+  </div>
+
+
+</body></html>

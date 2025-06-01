@@ -1,0 +1,104 @@
+<!DOCTYPE html><html><head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+   table {
+      border: 1px solid black;
+      border-collapse: collapse;
+    }
+
+
+    .center {
+      margin-left: auto;
+      margin-right: auto;
+    }
+    tr td { width:50%; }
+    
+    body {
+      font-family: 'Roboto', sans-serif;
+      font-size: 20px;
+    }
+    .heading {
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="frame">
+    <table class="center" style="width:100%">
+        <tbody><tr>
+            <td colspan="2" class="image-container" style="text-align: center;">
+              <img src="{{logoUrl}}" style="width:30%; max-width:250px;">
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2" class="heading">
+              <h3>Guest Charging Transaction Slip</h3>
+            </td>
+          </tr>
+      <tr>
+        <td style="text-align: left;">&nbsp;Transaction Slip No</td>
+        <td style="text-align: right;">{{invoice}}&nbsp;</td>
+      </tr>
+      <tr>
+        <td style="text-align: left;">&nbsp;Address</td>
+        <td style="text-align: right;">{{stationAddress}}&nbsp;</td>
+      </tr>
+      <tr>
+        <td style="text-align: left;">&nbsp;GST Number</td>
+        <td style="text-align: right;">{{stationGSTN}}&nbsp;</td>
+      </tr>
+      <tr>
+        <td style="text-align: left;">&nbsp;PAN</td>
+        <td style="text-align: right;">{{stationPAN}}&nbsp;</td>
+      </tr>
+      <tr>
+        <td style="text-align: left;">&nbsp;Invoice Date</td>
+        <td style="text-align: right;">{{date}}&nbsp;</td>
+      </tr>
+      <tr>
+        <td style="text-align: left;"><b>&nbsp;Transaction Details</b></td>
+        <td style="text-align: right;"></td>
+      </tr>
+      <tr>
+        <td style="text-align: left;">&nbsp;Charge Point</td>
+        <td style="text-align: right;">{{chargePointId}}&nbsp;</td>
+      </tr>
+      <tr>
+        <td style="text-align: left;">&nbsp;Connector Type</td>
+        <td style="text-align: right;">{{connectorType}}&nbsp;</td>
+      </tr>
+      <tr>
+        <td style="text-align: left;"><b>&nbsp;Session Details</b></td>
+        <td style="text-align: right;"></td>
+      </tr>
+      <tr>
+        <td style="text-align: left;">&nbsp;Selected Plan Duration(hh:mm:ss)</td>
+        <td style="text-align: right;">{{selectedPlanDuration}}&nbsp;</td>
+      </tr>
+      <tr>
+        <td style="text-align: left;">&nbsp;Selected Plan Amount</td>
+        <td style="text-align: right;">{{selectedPlanAmount}}&nbsp;</td>
+      </tr>
+      <tr>
+        <td style="text-align: left;">&nbsp;Total Amount</td>
+        <td style="text-align: right;">{{totalAmount}}&nbsp;</td>
+      </tr>
+      <tr>
+        <td style="text-align: left;"><b>&nbsp;Payment Details</b></td>
+        <td style="text-align: right;"></td>
+      </tr>
+      <tr>
+        <td style="text-align: left;">&nbsp;Payment Reference No.</td>
+        <td style="text-align: right;">{{paymentReference}}&nbsp;</td>
+      </tr>
+      <tr>
+        <td style="text-align: left;">&nbsp;Payment Mode</td>
+        <td style="text-align: right;">{{paymentMode}}&nbsp;</td>
+      </tr>
+    </tbody></table>
+  </div>
+
+
+
+</body></html>
