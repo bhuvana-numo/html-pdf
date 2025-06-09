@@ -1,4 +1,7 @@
-<!DOCTYPE html><html lang="en"><head>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
     body {
@@ -84,14 +87,14 @@
 <body>
   <div class="container">
     <div class="header">
-      <img src="{{logoUrl}}" style="width:30%; max-width:250px;">
+      <img src={{logoUrl}} style="width:30%; max-width:250px;">
       <h1>Reservation Cancellation Refund Slip</h1>
     </div>
 
     <div>
       <h2 class="section-title">Cancellation Details</h2>
       <table>
-        <tbody><tr>
+        <tr>
           <th>Customer Name</th>
           <td>{{userName}}</td>
         </tr>
@@ -111,11 +114,11 @@
           <th>Refund Amount</th>
           <td>{{refundAmount}}</td>
         </tr>
-      </tbody></table>
+      </table>
 
       <h2 class="section-title">Payment Details</h2>
       <table>
-        <tbody><tr>
+        <tr>
           <th>Original Amount</th>
           <td>{{originalAmount}}</td>
         </tr>
@@ -123,13 +126,13 @@
           <th>Total Refundable Amount</th>
           <td>{{totalRefundableAmount}}</td>
         </tr>
-      </tbody></table>
+      </table>
     </div>
 
     <div class="footer">
       <p>Thank you for choosing {{companyName}} EV service</p>
     </div>
   </div>
+</body>
 
-
-</body></html>
+</html>

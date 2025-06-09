@@ -44,7 +44,7 @@ def fill_placeholders(html: str, data: Dict[str, Any], optional_blocks: Dict[str
 @app.post("/fill-template", response_class=FileResponse)
 async def fill_template(request: FillTemplateRequest):
     try:
-        with open("templates\group_charging_tax_invoice.html", "r", encoding="utf-8") as file:
+        with open("templates\retail_topup_transaction_slip.html", "r", encoding="utf-8") as file:
             template_html = file.read()
 
         # Process HTML

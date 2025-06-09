@@ -1,4 +1,7 @@
-<!DOCTYPE html><html><head>
+<!DOCTYPE html>
+<html>
+
+<head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
     table {
@@ -23,10 +26,8 @@
 </head>
 
 <body>
-  
-    {taxInfoForParkingPenalty}
-    <table class="center" style="width:90%">
-    <tbody><tr>
+  <table class="center" style="width:90%">
+    <tr>
       <td colspan="2" style="text-align: center;">&nbsp;Tax Invoice</td>
     </tr>
     <tr>
@@ -116,7 +117,9 @@
     <tr>
       <td style="text-align: left;">&nbsp;EV Service Parking Charges Fee</td>
       <td style="text-align: right;">{{parkingPenaltyFee}}&nbsp;</td>
-    </tr><tr>
+    </tr>
+    {taxInfoForParkingPenalty}
+    <tr>
       <td style="text-align: left;">&nbsp;<b>Total Tax Amount</b></td>
       <td style="text-align: right;"><b>{{parkingPenaltyTotalTax}}</b>&nbsp;</td>
     </tr>
@@ -141,8 +144,7 @@
         <span>Thank you for using {{companyName}} EV service</span>
       </td>
     </tr>
-  </tbody></table>
+  </table>
+</body>
 
-
-
-</body></html>
+</html>

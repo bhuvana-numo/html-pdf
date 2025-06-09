@@ -1,4 +1,8 @@
-<!DOCTYPE html><html><head>
+<!DOCTYPE html>
+<html>
+
+
+<head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
     table {
@@ -22,24 +26,10 @@
 
 
 <body>
-  
-    {penaltyDuration}
-    
-    {penaltyRate}
-    
-    {penaltyFee}
-    
-    {cashbackRedeemed}
-    {walletDebit}
-    
-    {couponDetails}
-    {creditUsed}
-    
-    {paymentModeAndWalletId}
-    <table class="center" style="width:90%">
-    <tbody><tr>
+  <table class="center" style="width:90%">
+    <tr>
       <td colspan="2" style="text-align: center;">
-        <img src="{{logoUrl}}" style="width:30%; max-width:250px;">
+        <img src={{logoUrl}} style='width:30%; max-width:250px;'>
         {invoiceQR}
       </td>
     </tr>
@@ -146,9 +136,11 @@
     <tr>
       <td style="text-align: left;">&nbsp;Total Duration(hh:mm:ss)</td>
       <td style="text-align: right;">{{transactionduration}}&nbsp;</td>
-    </tr><!-- <tr>
-      <td align="left">&nbsp;Penalty Duration(hh:mm:ss)</td>
-      <td align="right">{{penaltyDuration}}&nbsp;</td>
+    </tr>
+    {penaltyDuration}
+    <!-- <tr>
+      <td style="text-align: left;">&nbsp;Penalty Duration(hh:mm:ss)</td>
+      <td style="text-align: right;">{{penaltyDuration}}&nbsp;</td>
     </tr> -->
     <tr>
       <td style="text-align: left;">&nbsp;Energy Consumed(kWh)</td>
@@ -157,13 +149,15 @@
     <tr>
       <td style="text-align: left;">&nbsp;Session Tariff{discountPercentage}</td>
       <td style="text-align: right;">{{rate}} / {{tariffUnit}} &nbsp;</td>
-    </tr><!-- <tr>
-      <td align="left">&nbsp;Penalty Tariff</td>
-      <td align="right">{{penaltyRate}}&nbsp;</td>
+    </tr>
+    {penaltyRate}
+    <!-- <tr>
+      <td style="text-align: left;">&nbsp;Penalty Tariff</td>
+      <td style="text-align: right;">{{penaltyRate}}&nbsp;</td>
     </tr> -->
     <tr> 
-      <td style="text-align: left;">&nbsp;SAC Code And Description</td> 
-      <td style="text-align: right;">998714 Maintenance and repair of transport machinery and equipment&nbsp;</td>
+      <td align='left'>&nbsp;SAC Code And Description</td> 
+      <td align='right'>998714 Maintenance and repair of transport machinery and equipment&nbsp;</td>
     </tr>
     <tr>
       <td style="text-align: left;">&nbsp;</td>
@@ -178,9 +172,11 @@
     <tr>
       <td style="text-align: left;"><b>&nbsp;Service Fee</b></td>
       <td style="text-align: right;"><b>{{serviceFee}} &nbsp;</b></td>
-    </tr><!-- <tr>
-      <td align="left"><b>&nbsp;Penalty Fee</b></td>
-      <td align="right"><b>{{penaltyFee}} &nbsp;</b></td>
+    </tr>
+    {penaltyFee}
+    <!-- <tr>
+      <td style="text-align: left;"><b>&nbsp;Penalty Fee</b></td>
+      <td style="text-align: right;"><b>{{penaltyFee}} &nbsp;</b></td>
     </tr> -->
     <tr>
       <td style="text-align: left;"><b>&nbsp;Total Amount</b></td>
@@ -189,13 +185,21 @@
     <tr>
     <td style="text-align: left;"><b>&nbsp;Total Amount In Words</b></td>
     <td style="text-align: right;"><b>{{totalInWords}}&nbsp;</b></td>
-    </tr><tr>
+    </tr>
+    {cashbackRedeemed}
+    {walletDebit}
+    <tr>
       <td style="text-align: left;">&nbsp;</td>
       <td style="text-align: left;">&nbsp;</td>
-    </tr><tr>
+    </tr>
+    {couponDetails}
+    {creditUsed}
+    <tr>
     <td style="text-align: left;">&nbsp;Wallet Balance:</td>
     <td style="text-align: right;">{{walletBalance}}&nbsp;</td>
-    </tr><tr>
+    </tr>
+    {paymentModeAndWalletId}
+    <tr>
       <td style="text-align: left;">&nbsp;</td>
       <td style="text-align: left;">&nbsp;</td>
     </tr>
@@ -204,7 +208,7 @@
       <td style="text-align: right;"></td>
     </tr>
     <tr>
-      <td style="text-align: left;">&nbsp;Date &amp; Time</td>
+      <td style="text-align: left;">&nbsp;Date & Time</td>
       <td style="text-align: right;">{{lastTopUpDate}}&nbsp;</td>
     </tr>
     <tr>
@@ -220,9 +224,8 @@
         <span>Thank you for using {{companyName}} EV service</span>
       </td>
     </tr>
-  </tbody></table>
+  </table>
   <p style="text-align: center;"><b>This is a computer-generated document. No signature is required.</b></p>
   <!-- {carbonmessge} -->
-
-
-</body></html>
+</body>
+</html>

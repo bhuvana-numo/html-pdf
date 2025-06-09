@@ -1,23 +1,20 @@
 const fs = require('fs');
 const path = require('path');
-const cheerio = require('cheerio');
 
-const templatesDir = './templates';
+const templateDir = path.join(__dirname, 'templates');
 
-fs.readdirSync(templatesDir).forEach(file => {
-  if (file.endsWith('.html')) {
-    const filePath = path.join(templatesDir, file);
-    const html = fs.readFileSync(filePath, 'utf-8');
-    const $ = cheerio.load(html);
 
-    $('[align]').each((_, el) => {
-      const align = $(el).attr('align');
-      const style = $(el).attr('style') || '';
-      $(el).removeAttr('align');
-      $(el).attr('style', `text-align: ${align}; ${style}`.trim());
+fs.readdirSync(templateDir).forEach(file => {
+  const filePath = path.join(templateDir, file);
+
+  if (path.extname(file) === '.html') {
+    let content = fs.readFileSync(filePath, 'utf8');
+
+    const cleaned = content.replace(/align\s*=\s*"(left|right|center)"/gi, (_, alignVal) => {
+      return `style="text-align: ${alignVal.toLowerCase()};"`;
     });
 
-    fs.writeFileSync(filePath, $.html());
-    console.log(`Cleaned: ${file}`);
+    fs.writeFileSync(filePath, cleaned, 'utf8');
+    console.log(`Updated: ${file}`);
   }
 });

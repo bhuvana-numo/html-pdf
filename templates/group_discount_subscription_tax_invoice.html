@@ -1,4 +1,8 @@
-<!DOCTYPE html><html><head>
+<!DOCTYPE html>
+<html>
+
+
+<head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
     table {
@@ -22,14 +26,10 @@
 
 
 <body>
-  
-    {groupNamePrepaid}
-    
-    {taxDetails}
-    <table class="center" style="width:90%">
-    <tbody><tr>
+  <table class="center" style="width:90%">
+    <tr>
       <td colspan="2" style="text-align: center;">
-        <img src="{{logoUrl}}" style="width:30%; max-width:250px;">
+        <img src={{logoUrl}} style='width:30%; max-width:250px;'>
         {invoiceQR}
       </td>
     </tr>
@@ -60,7 +60,9 @@
     <tr>
       <td style="text-align: left;"><b>&nbsp;Bill To</b></td>
       <td style="text-align: right;"></td>
-    </tr><tr>
+    </tr>
+    {groupNamePrepaid}
+    <tr>
       <td style="text-align: left;">&nbsp;Name</td>
       <td style="text-align: right;"> {{userName}} &nbsp;</td>
     </tr>
@@ -115,7 +117,9 @@
     <tr>
       <td style="text-align: left;">&nbsp;</td>
       <td style="text-align: left;">&nbsp;</td>
-    </tr><tr>
+    </tr>
+    {taxDetails}
+    <tr>
       <td style="text-align: left;"><b>&nbsp;Total Tax Amount</b></td>
       <td style="text-align: right;"><b>{{totalTax}}&nbsp;</b></td>
     </tr>
@@ -132,7 +136,7 @@
       <td style="text-align: left;">&nbsp;</td>
       <td style="text-align: left;">&nbsp;</td>
     </tr>
-    <tr><td style="text-align: left;">&nbsp;Amount Debited</td>
+    <td style="text-align: left;">&nbsp;Amount Debited</td>
     <td style="text-align: right;">{{amount}}&nbsp;</td>
   </tr>
   <tr>
@@ -145,9 +149,8 @@
       <span>Thank you for using {{companyName}} EV service</span>
     </td>
   </tr>
-  </tbody></table>
+  </table>
   <p style="text-align: center;"><b>This is a computer-generated document. No signature is required.</b></p>
   <!-- {carbonmessge} -->
-
-
-</body></html>
+</body>
+</html>
